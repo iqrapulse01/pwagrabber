@@ -1,0 +1,124 @@
+:root {
+  --wheel-size: 400px;
+  --wheel-border-size: 5px;
+  --wheel-colors: #ffcc00, #ff6600, #ff0000, #9900cc, #3366ff, #009933, #66cc33, #cccccc;
+  --neutral-color: white;
+  --PI: 3.14159265358979;
+  --nb-item: 8;
+  --selected-item: 0;
+  --nb-turn: 5;
+  --spinning-duration: 4s;
+  --reset-duration: 0.25s;
+}
+
+.wheel-container {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: calc(var(--wheel-size) + 2 * var(--wheel-border-size));
+  height: calc(var(--wheel-size) + 2 * var(--wheel-border-size));
+  background-color: var(--neutral-color);
+  border: solid black 3px;
+  border-radius: 50%;
+  user-select: none;
+}
+
+.wheel {
+  position: relative;
+  width: var(--wheel-size);
+  height: var(--wheel-size);
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform var(--reset-duration);
+  transform: rotate(0deg);
+  cursor: pointer;
+}
+
+.wheel.spinning {
+  transition: transform var(--spinning-duration);
+  transform: rotate(calc(var(--nb-turn) * 360deg + (-360deg * var(--selected-item) / var(--nb-item, 1))));
+}
+
+.wheel-item {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform-origin: center left;
+  transform: translateY(-50%) rotate(calc(var(--item-nb) * (360deg / var(--nb-item, 1))));
+  clip-path: polygon(0 50%, 100% 0, 100% 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px; 
+}
+
+
+.wheel-item:nth-child(1) { background-color: #ffcc00 !important; }
+.wheel-item:nth-child(2) { background-color: #ff6600 !important; }
+.wheel-item:nth-child(3) { background-color: #ff0000 !important; }
+.wheel-item:nth-child(4) { background-color: #9900cc !important; }
+.wheel-item:nth-child(5) { background-color: #3366ff !important; }
+.wheel-item:nth-child(6) { background-color: #009933 !important; }
+.wheel-item:nth-child(7) { background-color: #66cc33 !important; }
+.wheel-item:nth-child(8) { background-color: #cccccc !important; }
+
+.wheel-logo {
+  width: 30px !important; 
+  height: 30px !important;
+  border-radius: 50%;
+  object-fit: contain;
+  position: relative;
+  /* transform: translateX(-50%);  */
+  /* z-index: -10000000;  */
+  margin-top: -30px;
+}
+
+.wheel-item span {
+  font-size: 14px;
+  color: rgb(7, 7, 7);
+  font-weight: bold;
+  text-align: center;
+  margin-top: 85px;
+}
+
+.wheel-center {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  background: black;
+  color: white;
+  font-size: 14px; /* Adjust font size for better fit */
+  font-weight: bold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.wheel-center::after {
+  content: "PRESS"; /* Add the text */
+  text-transform: uppercase;
+}
+
+.wheel-indicator {
+  position: absolute;
+  top: 200px;
+  left:100%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 20px solid rgb(255, 254, 254); 
+  z-index: 10000;
+}

@@ -1,0 +1,109 @@
+/* Navbar Container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+/* Logo */
+.logo img {
+  height: 50px;
+}
+.logo img:hover {
+  transform: scale(1.2);
+}
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  margin: 0 1rem;
+  position: relative;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #044f70;
+  /* text-shadow: -1px -1px 2px #044f70, -4px -4px 20px rgba(0, 0, 0, 0.2); */
+  /* -webkit-text-stroke: 1px #f7faf8;  */
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 2px;
+}
+.nav-links a:hover {
+  color: #148446;
+  transform: translateY(-3px);
+}
+/* Active Page Animation */
+.nav-links a.active {
+  color: #148446;
+  border-bottom: 1px solid #148446;
+  /* -webkit-text-stroke: 1px #f7faf8;  */
+  text-shadow: -1px -1px 2px #f7faf8, -4px -4px 20px rgba(0, 0, 0, 0.2),-4px -4px 20px rgba(0, 0, 0, 0.2),-4px -4px 20px rgba(0, 0, 0, 0.2),-4px -4px 20px rgba(248, 245, 245, 0.2),-4px -4px 20px rgba(250, 249, 249, 0.2),-4px -4px 20px rgba(0, 0, 0, 0.2),-4px -4px 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  /* border-radius: 5px; */
+}
+
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px;
+  transition: all 0.3s ease-in-out;
+}
+/* Right Side: Signup Button */
+.navbar-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #fff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .change {
+    transform: rotate(90deg);
+  }
+}

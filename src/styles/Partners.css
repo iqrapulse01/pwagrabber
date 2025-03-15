@@ -1,0 +1,32 @@
+.partnerbtn button {
+  color: #148446;
+  background: #ecf0f3;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  min-width: 180px;
+  text-align: center;
+  transition: 0.3s;
+  box-shadow: 6px 6px 10px #cbced1, -6px -6px 10px white;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+/* Hover Effect */
+.partnerbtn button:hover {
+  box-shadow: none;
+}
+.partnerbtn {
+  text-align: center;
+  margin-top: 15%;
+}
+@media (max-width: 768px) {
+  
+  .partnerbtn {
+    margin-top: 40%;
+  }
+}

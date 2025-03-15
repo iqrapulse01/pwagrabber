@@ -1,0 +1,55 @@
+.deal-page {
+  text-align: center;
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.deal-banner img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+h1 {
+  color: #044f70;
+  font-size: 24px;
+  margin: 20px 0 10px;
+}
+
+p {
+  font-size: 16px;
+  color: #333;
+  padding: 0 10px;
+}
+
+/* QR Code Styling */
+.qr-container {
+  margin: 20px auto;
+  text-align: center;
+}
+
+.qr-container p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 10px;
+}
+
+.claim-button {
+  display: inline-block;
+  background-color: #148446;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-top: 15px;
+  transition: 0.3s;
+}
+
+.claim-button:hover {
+  background-color: #0e6532;
+}

@@ -1,0 +1,181 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+
+/* Main Container */
+.about-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #f8f9fa;
+  padding: 20px;
+  perspective: 1000px;
+  position: relative;
+  overflow: hidden; 
+}
+
+/* Content Box */
+.about-content {
+  max-width: 900px;
+  text-align: center;
+  background: white;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 1s ease-in-out;
+  transform-style: preserve-3d;
+}
+
+/* Flip Animation */
+.flip {
+  transform: rotateY(360deg);
+}
+
+/* Headings */
+.about-content h1 {
+  font-size: 2rem;
+  font-family: "Audiowide", cursive;
+  color: #044f70;
+  margin-bottom: 30px;
+}
+.about-content h1:hover {
+  color: #148446;
+}
+
+.about-content h2 {
+  font-size: 1.4rem;
+  width: 80%;
+  margin: 0 auto;
+  font-family: "Audiowide", cursive;
+  color: #148446;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.about-content h2:hover {
+  color: #044f70;
+}
+.rise {
+	text-shadow: -0.01em -0.01em 0.01em #000;
+	animation: rise 2s ease-in-out 0.5s forwards;
+}
+
+@keyframes rise {
+	to {
+		text-shadow: 0em 0.01em rgb(253, 253, 252), 0em 0.02em rgb(252, 252, 251), 0em 0.02em 0.03em rgb(252, 252, 249),
+			-0.01em 0.01em #333, -0.02em 0.02em #333, -0.03em 0.03em #333,
+			-0.04em 0.04em #333, -0.01em -0.01em 0.03em #000, -0.02em -0.02em 0.03em #000,
+			-0.03em -0.03em 0.03em #000;
+		transform: translateY(-0.025em) translateX(0.04em);
+	}
+}
+
+.outline {
+	background-clip: text;
+	color: #ffdd40;
+	animation: outline 1s ease-in-out 1.5s forwards;
+}
+
+@keyframes outline {
+	from {
+		text-shadow: 0em -7em 10em #fff;
+	}
+	to {
+		text-shadow: 0 0.02em #fff, 0.02em 0 #fff, -0.02em 0 #fff, 0 -0.02em #fff;
+	}
+}
+
+
+/* Paragraphs */
+.about-content p {
+  font-size: 1rem;
+  font-weight: 600;
+  width: 90%;
+  margin: 0 auto;
+  color: #202020;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  max-width: 700px;
+  text-align: justify;
+}
+
+/* Highlight */
+.highlight {
+  font-weight: bold;
+  color: #044f70;
+}
+
+/* Sprinkle Effect */
+.sprinkles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.sprinkles.active {
+  opacity: 1;
+}
+
+/* Sprinkle Dots */
+.sprinkle-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #ff5722; /* Default sprinkle color */
+  animation: fall 2s linear infinite;
+}
+
+/* Sprinkle Colors */
+.sprinkle-dot:nth-child(3n) { background-color: #2196f3; }
+.sprinkle-dot:nth-child(3n + 1) { background-color: #4caf50; }
+.sprinkle-dot:nth-child(3n + 2) { background-color: #9c27b0; }
+
+/* Sprinkle Animation */
+@keyframes fall {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
+@media (max-width: 768px) {
+  .about-content {
+    padding: 20px;
+  }
+
+  .about-content h1 {
+    font-size: 1.5rem; /* Reduce size for smaller screens */
+  }
+
+  .about-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+
+  .sprinkle-dot {
+    width: 5px; /* Smaller dots for better fit */
+    height: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-content h1 {
+    font-size: 1.3rem;
+  }
+
+  .about-content h2 {
+    font-size: 1.1rem;
+  }
+
+  .about-content p {
+    font-size: 0.9rem;
+  }
+}

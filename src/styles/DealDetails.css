@@ -1,0 +1,44 @@
+.deal-details {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .deal-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .deal-title {
+    margin-top: 20px;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .deal-description {
+    width: 60%;
+    margin: 20px auto;
+    font-size: 1.2rem;
+    line-height: 1.6;
+  }
+
+  
+  .claim-deal-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .claim-deal-button:hover {
+    background-color: #e64a19;
+  }
+  
