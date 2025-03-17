@@ -35,7 +35,8 @@
   font-size: 2rem;
   font-family: "Audiowide", cursive;
   color: #044f70;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+  margin-top: 25px;
 }
 .about-content h1:hover {
   color: #148446;
@@ -94,7 +95,7 @@
   margin-bottom: 15px;
   line-height: 1.6;
   max-width: 700px;
-  text-align: justify;
+  text-align: left;
 }
 
 /* Highlight */
@@ -144,28 +145,32 @@
   }
 }
 @media (max-width: 768px) {
-  .about-content {
-    padding: 20px;
-  }
+  
 
   .about-content h1 {
-    font-size: 1.5rem; /* Reduce size for smaller screens */
+    font-size: 1.2rem !important; 
+    width: 90% !important;
   }
 
   .about-content h2 {
-    font-size: 1.2rem;
+    font-size: 0.9rem !important;
+    letter-spacing: 1px;
+    width: 90%;
   }
-
+  .rise {
+    text-shadow: none; 
+    animation: none; 
+}
   .about-content p {
     font-size: 1rem;
+    width: 90%;
   }
 
   .sprinkle-dot {
-    width: 5px; /* Smaller dots for better fit */
+    width: 5px; 
     height: 5px;
   }
 }
-
 @media (max-width: 480px) {
   .about-content h1 {
     font-size: 1.3rem;

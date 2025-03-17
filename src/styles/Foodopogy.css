@@ -63,4 +63,14 @@ p {
   .Foodopoly {
     margin-top: 30%;
   }
+  .button-container{
+    display: flex;
+    /* flex-direction: column; */
+    gap: 10px !important;
+  }
+  .claim-deal-button{
+    font-size: 12px !important;
+    padding: 5px 10px;
+    width: 100px !important;
+  }
 }

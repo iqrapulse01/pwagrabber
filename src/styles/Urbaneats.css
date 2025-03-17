@@ -55,3 +55,46 @@
   .explore-button:hover {
     background-color: #044f70;
   }
+  @media (max-width: 768px) {
+    .foodopoly-logo{
+      margin-top: -40px !important;
+      width: 150px !important;
+    }
+    .urban-eats {
+      padding: 1rem;
+    }
+  
+    .urban-eats h1 {
+      font-size: 1.8rem; /* Reduce heading size */
+      margin-bottom: 1.5rem;
+      flex-direction: column;
+    }
+  
+    .categories {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust grid */
+      gap: 1rem;
+    }
+  
+    .category-card {
+      padding: 1rem; /* Reduce padding */
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+  
+    .category-card h2 {
+      font-size: 1.4rem; /* Reduce card heading size */
+      margin-bottom: 0.8rem;
+    }
+  
+    .category-card p {
+      font-size: 1rem; /* Reduce paragraph size */
+      margin-bottom: 1rem;
+    }
+  
+    .explore-button {
+      padding: 0.4rem 0.8rem; /* Adjust button padding */
+      font-size: 0.9rem; /* Reduce button text size */
+      border-radius: 4px;
+    }
+  }
+  
