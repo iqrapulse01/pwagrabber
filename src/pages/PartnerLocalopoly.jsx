@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; 
 import "../styles/Foodopogy.css";
-import logoImage from "../assets/imgnew/mobilopoly.png";
+import logoImage from "../assets/images/localopolylogo.png";
 
 const Partnerlocalopoly = () => {
 
@@ -13,7 +13,7 @@ const Partnerlocalopoly = () => {
     <div className="Foodopoly">
       <img src={logoImage} alt="Mobilopoly Logo" className="foodopoly-logo" />
       <h1>Localopoly</h1>
-      <p>Experience Localopoly, ...... Description and logo needs</p>
+      <p>The Ultimate Local Business & Rewards Ecosystem. Localopoly is an innovative, gamified platform designed to supercharge local commerce while rewarding customers for shopping, dining, and engaging with their communities.</p>
       <div className="button-container">
         <button className="claim-deal-button" onClick={() => navigate("/Partners")}>
           Back

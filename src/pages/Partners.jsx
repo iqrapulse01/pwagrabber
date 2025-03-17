@@ -59,7 +59,6 @@ const PartnersSplash = () => {
     <>
       <div className="partnerbtn">
         <button onClick={() => navigate("/foodopoly")}>Urban Eats</button>
-        <button onClick={() => navigate("/mobilopoly")}>Mobilopoly</button>
         <button onClick={() => navigate("/shopch")}>Shop CHI</button>
         <button onClick={() => navigate("/partnerlocalopoly")}>Localopoly</button>
       </div>

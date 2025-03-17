@@ -40,7 +40,6 @@
   transition: transform var(--spinning-duration);
   transform: rotate(calc(var(--nb-turn) * 360deg + (-360deg * var(--selected-item) / var(--nb-item, 1))));
 }
-
 .wheel-item {
   position: absolute;
   width: 50%;
@@ -67,23 +66,23 @@
 .wheel-item:nth-child(7) { background-color: #66cc33 !important; }
 .wheel-item:nth-child(8) { background-color: #cccccc !important; }
 
-.wheel-logo {
-  width: 30px !important; 
-  height: 30px !important;
+.spin-game img {
+  width: 60px;
+  max-width: 100%;
   border-radius: 50%;
   object-fit: contain;
-  position: relative;
-  /* transform: translateX(-50%);  */
-  /* z-index: -10000000;  */
-  margin-top: -30px;
+  position: absolute;
+  left: 130px;
+  /* transform: translateY(-50%);  */
+  z-index: 10000000; 
+  margin-top: 60px;
 }
-
 .wheel-item span {
   font-size: 14px;
   color: rgb(7, 7, 7);
   font-weight: bold;
   text-align: center;
-  margin-top: 85px;
+  margin-top: 65px;
 }
 
 .wheel-center {
@@ -121,4 +120,43 @@
   border-bottom: 15px solid transparent;
   border-right: 20px solid rgb(255, 254, 254); 
   z-index: 1;
+}
+@media (max-width: 768px) {
+  :root {
+    --wheel-size: 250px; /* Smaller wheel for small screens */
+  }
+
+  .wheel-container {
+    width: calc(var(--wheel-size) + 2 * var(--wheel-border-size));
+    height: calc(var(--wheel-size) + 2 * var(--wheel-border-size));
+  }
+
+  .wheel {
+    width: var(--wheel-size);
+    height: var(--wheel-size);
+  }
+
+  .wheel-item span {
+    font-size: 10px; /* Reduce text size */
+    margin-top: 40px;
+  }
+
+  .spin-game img {
+    width: 40px; /* Scale down logo */
+    margin-top: 40px;
+    left: 100px;
+  }
+
+  .wheel-center {
+    width: 40px; 
+    height: 40px;
+    font-size: 10px; 
+  }
+
+  .wheel-indicator {
+    top: 130px; /* Adjust position */
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 15px solid rgb(255, 254, 254);
+  }
 }

@@ -256,10 +256,7 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  /* .popup-box {
-    width: 95%;
-  } */
-
+ 
   #nav-buttons {
     flex-direction: column;
     gap: 10px;

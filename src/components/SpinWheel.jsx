@@ -62,11 +62,12 @@ export default class SpinWheel extends React.Component {
               backgroundColor: index % 2 === 0 ? '#044f70' : '#148446',
             }}
           >
-            <img src={logo} alt="DG Logo" className="wheel-logo" />
+            <img src={logo} alt="DG Logo" className="wheel-logo" /> <br />
             <span className="wheel-text">{item}</span>
           </div>
           
           ))}
+
         </div>
         <div className="wheel-center" onClick={this.selectItem}></div>
       </div>

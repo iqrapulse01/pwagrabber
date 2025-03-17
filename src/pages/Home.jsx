@@ -181,9 +181,9 @@ const Home = () => {
           <button onClick={() => navigate("/localopoly")}>Deal Pages</button>
           <button onClick={() => navigate("/dealopoly")}>Dealopoly</button>
           <button onClick={() => navigate("/partners")}>Partners</button>
-          <button onClick={handleInstallClick}>
+          {/* <button onClick={handleInstallClick}>
             Download to Home Screen
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
