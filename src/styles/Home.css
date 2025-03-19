@@ -138,6 +138,7 @@
   font-weight: 900;
   box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
   transition: 0.5s;
+  background: #f0f0f0 !important;
 }
 
 .popup-buttons button:hover {
