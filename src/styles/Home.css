@@ -146,19 +146,13 @@
 .popup-buttons .submit-bt{
   color: #149046;
   text-transform: uppercase;
-}
-.popup-buttons .submit-btn {
   background: #ccc;
-  color: #149046;
 }
+
 .popup-buttons .close-btn{
   color: #086e94;
   text-transform: uppercase;
   background: #ccc;
-}
-.popup-buttons .skip-btn {
-  background: #ccc;
-  color: #086e94;
 }
 
 /* Main Content */
@@ -275,6 +269,7 @@
   .popup-buttons .submit-bt {
     color: #149046 !important;
     text-transform: uppercase !important;
+    background: #ccc !important;
 }
 }
 @media (max-width: 600px) {
