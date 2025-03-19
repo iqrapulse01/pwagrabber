@@ -14,7 +14,7 @@ const Localopoly = () => {
   useEffect(() => {
       const timer = setTimeout(() => {
         setShowSplashScreen(false);
-        window.location.href = "https://heyzine.com/flip-book/8ad5f1bf4e.html"
+        window.location.href = "https://heyzine.com/flip-book/533434d45a.html"
       }, 5000); // Show splash for 3 sec
       return () => clearTimeout(timer);
     }, []);

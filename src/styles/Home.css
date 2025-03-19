@@ -148,12 +148,13 @@
   text-transform: uppercase;
 }
 .popup-buttons .submit-btn {
-  background: #1DA1F2;
+  background: #ccc;
   color: #149046;
 }
 .popup-buttons .close-btn{
   color: #086e94;
   text-transform: uppercase;
+  background: #ccc;
 }
 .popup-buttons .skip-btn {
   background: #ccc;
