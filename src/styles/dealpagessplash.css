@@ -1,0 +1,46 @@
+/* Main container */
+.splash-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #044f70;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Image container */
+  .splash-images {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Single Image */
+  .splash-image {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    opacity: 0;
+    animation: fadeInOut 3s ease-in-out forwards;
+  }
+  
+  /* Smooth fade-in for 2 seconds and fade-out after */
+  @keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }  /* Smooth fade-in */
+    70% { opacity: 1; }  /* Image stays visible */
+    100% { opacity: 0; } /* Smooth fade-out */
+  }
+  
+  /* Media Query - Different image for mobile */
+  @media (max-width: 768px) {
+    .splash-image {
+      content: url("../assets/mobileview/dealpages.png"); /* Change image for mobile */
+    }
+  }
+  

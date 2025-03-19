@@ -1,78 +1,101 @@
+/* Main container */
 .splash-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #044f70; /* Use client's primary color */
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .splash-images {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .splash-image {
-    position: absolute;
-    /* width: 100%;
-    height: 100%; */
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    opacity: 0;
-    animation: fadeImages 5s infinite; /* Fades through 3 images */
-  }
-  
-  .splash-image:nth-child(1) {
-    animation-delay: 1s;
-  }
-  
-  .splash-image:nth-child(2) {
-    animation-delay: 2s;
-  }
-  
-  .splash-image:nth-child(3) {
-    animation-delay: 3s;
-  }
-  
-  @keyframes fadeImages {
-    0% { opacity: 0; }
-    33% { opacity: 1; }
-    66% { opacity: 1; }
-    100% { opacity: 0; }
-  }
-  
-  .splash-content {
-    position: absolute;
-    z-index: 2;
-    text-align: center;
-  }
-  
-  .splash-logo {
-    width: 180px;
-    animation: fadeIn 2s ease-in-out;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #044f70; /* Use client's primary color */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Image container */
+.splash-images {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Images - covering the full screen */
+.splash-image {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* Ensures image fits properly */
+  opacity: 0;
+  animation: fadeImages 6s infinite;
+}
+
+/* Correct animation delay for each image */
+.splash-image:nth-child(1) {
+  animation-delay: 2s; /* Text shows for 2s, then first image */
+}
+
+.splash-image:nth-child(2) {
+  animation-delay: 3.3s; /* After first image */
+}
+
+.splash-image:nth-child(3) {
+  animation-delay: 4.6s; /* After second image */
+}
+
+/* Text content */
+.splash-content {
+  position: absolute;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Logo */
+.splash-logo {
+  width: 180px;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Splash Text */
+.splash-text {
+  font-size: 2.5rem;
+  color: #f7f6f6;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
+  margin-top: 20px;
+  animation: fadeIn 1s ease-in-out, fadeOut 1s ease-in-out 2s forwards;
+}
+
+/* Fade-in animation for text */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Fade-out animation for text */
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Image fading animation */
+@keyframes fadeImages {
+  0%, 19% { opacity: 0; }
+  20%, 39% { opacity: 1; } /* First image */
+  40%, 59% { opacity: 0; }
+
+  60%, 79% { opacity: 1; } /* Second image */
+  80%, 99% { opacity: 0; }
+
+  100% { opacity: 1; } /* Third image */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .splash-text {
-    font-size: 18px;
-    color: #044f70;
-    font-weight: 800;
-    margin-top: 10px;
-    animation: fadeIn 3.5s ease-in-out;
+    font-size: 2rem; /* Adjust size for mobile */
+    letter-spacing: 1px;
   }
-  
-  /* Fade in animation */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: scale(0.8);
-    }
-    to {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-  
+}

@@ -1,7 +1,7 @@
 :root {
   --wheel-size: 400px;
   --wheel-border-size: 5px;
-  --wheel-colors: #ffcc00, #ff6600, #ff0000, #9900cc, #3366ff, #009933, #66cc33, #cccccc;
+  --wheel-colors: #ffcc00, #ff6600, #ff0000, #9900cc, #3366ff, #009933, #cccccc;
   --neutral-color: white;
   --PI: 3.14159265358979;
   --nb-item: 8;
@@ -57,19 +57,18 @@
 }
 
 
-.wheel-item:nth-child(1) { background-color: #ffcc00 !important; }
-.wheel-item:nth-child(2) { background-color: #ff6600 !important; }
-.wheel-item:nth-child(3) { background-color: #ff0000 !important; }
-.wheel-item:nth-child(4) { background-color: #9900cc !important; }
-.wheel-item:nth-child(5) { background-color: #3366ff !important; }
-.wheel-item:nth-child(6) { background-color: #009933 !important; }
-.wheel-item:nth-child(7) { background-color: #66cc33 !important; }
-.wheel-item:nth-child(8) { background-color: #cccccc !important; }
+.wheel-item:nth-child(1) { background-color: #ffcc00 !important; } /* Yellow: DG */
+.wheel-item:nth-child(2) { background-color: #ff6600 !important; } /* Orange: Dealopoly */
+.wheel-item:nth-child(3) { background-color: #ff0000 !important; } /* Red: Foodopoly */
+.wheel-item:nth-child(4) { background-color: #9900cc !important; } /* Purple: Mobilopoly */
+.wheel-item:nth-child(5) { background-color: #3366ff !important; } /* Blue: Bizopoly */
+.wheel-item:nth-child(6) { background-color: #009933 !important; } /* Green: Localopoly */
+.wheel-item:nth-child(7) { background-color: #ffcc00 !important; } /* Yellow: DG (No Prize) */
 
 .spin-game img {
   width: 60px;
   max-width: 100%;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   object-fit: contain;
   position: absolute;
   left: 130px;
@@ -77,6 +76,45 @@
   z-index: 10000000; 
   margin-top: 60px;
 }
+
+/* Adjust image rotation for specific logos */
+.wheel-item:nth-child(2) .wheel-logo { /* Dealopoly */
+  transform: rotate(90deg);
+  margin-top: 70px;
+  width: 90px;
+}
+
+.wheel-item:nth-child(3) .wheel-logo { /* Foodopoly */
+  transform: rotate(90deg);
+  margin-top: 70px;
+  width: 90px;
+}
+
+.wheel-item:nth-child(4) .wheel-logo { /* Mobilopoly */
+  transform: rotate(90deg);
+  margin-top: 70px;
+  width: 90px;
+}
+
+.wheel-item:nth-child(5) .wheel-logo { /* Bizopoly */
+  transform: rotate(90deg);
+  margin-top: 70px;
+  width: 90px;
+}
+
+.wheel-item:nth-child(6) .wheel-logo { /* Localopoly */
+  transform: rotate(90deg);
+  margin-top: 70px;
+  width: 90px;
+}
+
+.wheel-item:nth-child(1) .wheel-logo, 
+.wheel-item:nth-child(7) .wheel-logo { /* DG (No Prize) */
+  transform: rotate(0deg); /* Keep upright */
+}
+
+
+
 .wheel-item span {
   font-size: 14px;
   color: rgb(7, 7, 7);

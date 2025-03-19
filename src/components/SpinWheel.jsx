@@ -2,7 +2,12 @@ import React from 'react';
 import './SpinWheel.css';
 import toast from 'react-hot-toast';
 import spinSound from '../assets/audio/CasinoWheel-m.mp3';
-import logo from '../assets/images/dealgrabberlogo.png';
+import dgLogo from '../assets/images/dealgrabberlogo.png';
+import localopolyLogo from '../assets/images/localopolylogo.png';
+import foodopolyLogo from '../assets/images/foodopoly.png';
+import dealopolyLogo from '../assets/images/dealopoly.png';
+import mobilopolyLogo from '../assets/images/mobilopoly.png';
+import bizopolyLogo from '../assets/images/Bizopoly.png';
 
 export default class SpinWheel extends React.Component {
   constructor(props) {
@@ -21,11 +26,10 @@ export default class SpinWheel extends React.Component {
         this.props.onSelectItem(selectedItem);
       }
       this.setState({ selectedItem });
-
       this.audio.play();
 
       setTimeout(() => {
-        this.audio.pause(); // Stop the audio when the spin stops
+        this.audio.pause();
         this.audio.currentTime = 0;
         if (selectedItem === 0) {
           toast.success(`Sorry, No Prize! 😞`);
@@ -42,7 +46,9 @@ export default class SpinWheel extends React.Component {
   render() {
     const { selectedItem } = this.state;
     const { prizes } = this.props;
-
+    
+    const logos = [dgLogo, dealopolyLogo, foodopolyLogo, mobilopolyLogo, bizopolyLogo, localopolyLogo, dgLogo];
+    
     const wheelVars = {
       '--nb-item': prizes.length,
       '--selected-item': selectedItem,
@@ -55,19 +61,14 @@ export default class SpinWheel extends React.Component {
         <div className={`wheel ${spinning}`} style={wheelVars} onClick={this.selectItem}>
           {prizes.map((item, index) => (
             <div
-            className="wheel-item"
-            key={index}
-            style={{
-              '--item-nb': index,
-              backgroundColor: index % 2 === 0 ? '#044f70' : '#148446',
-            }}
-          >
-            <img src={logo} alt="DG Logo" className="wheel-logo" /> <br />
-            <span className="wheel-text">{item}</span>
-          </div>
-          
+              className="wheel-item"
+              key={index}
+              style={{ '--item-nb': index }}
+            >
+              <img src={logos[index]} alt="Wheel Logo" className="wheel-logo" /> <br />
+              <span className="wheel-text">{item}</span>
+            </div>
           ))}
-
         </div>
         <div className="wheel-center" onClick={this.selectItem}></div>
       </div>
