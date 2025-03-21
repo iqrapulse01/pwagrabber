@@ -43,7 +43,7 @@ const App = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplash(false);
-    }, 5000); // Show splash for 5 sec
+    }, 7500);
     return () => clearTimeout(timer);
   }, []);
 

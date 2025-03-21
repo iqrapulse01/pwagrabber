@@ -5,55 +5,24 @@ import "../styles/Partners.css";
 import SplashScreen from "./SplashScreen";
 import partnersImage from "../assets/imgnew/mobilopoly screen 3.jpg"; 
 import logoImage from "../assets/images/dealgrabber1bg.png";
+import SplashScreenPartners from "./SplashScreenPartners";
 
 const PartnersSplash = () => {
   const navigate = useNavigate();
   const [showSplashScreen, setShowSplashScreen] = useState(true);
-  const [fadeClass, setFadeClass] = useState(""); // Initially empty
+
 
   useEffect(() => {
-    // Apply fade-in effect on mount
-    setTimeout(() => {
-      setFadeClass("fade-in");
-    }, 10); // Small delay to ensure CSS transition applies
-
-    // Start fade-out after 4 seconds
-    const fadeOutTimer = setTimeout(() => {
-      setFadeClass("fade-out");
-    }, 4000); 
-
-    // Completely remove splash screen after 5 seconds
-    const removeSplashTimer = setTimeout(() => {
-      setShowSplashScreen(false);
-    }, 5000);
-
-    return () => {
-      clearTimeout(fadeOutTimer);
-      clearTimeout(removeSplashTimer);
-    };
-  }, []);
-
-  if (showSplashScreen) {
-    return (
-      <div
-        className={`splash-container ${fadeClass}`}
-        style={{
-          backgroundImage: `url(${partnersImage})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          width: "100vw",
-          height: "100vh",
-          position: "fixed",
-          paddingTop:"60px",
-          top: 0,
-          left: 0,
-          zIndex: 9999,
-        }}
-      >
-        <SplashScreen partners={true} />
-      </div>
-    );
-  }
+      const timer = setTimeout(() => {
+        setShowSplashScreen(false);
+      }, 3000); 
+      return () => clearTimeout(timer);
+    }, []);
+    
+  
+    if(showSplashScreen){
+      return <SplashScreenPartners/>
+    }
 
   return (
     <>

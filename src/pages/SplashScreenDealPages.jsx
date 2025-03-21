@@ -1,19 +1,26 @@
-import React from "react";
-import "../styles/SplashScreen.css";
+import React, {useState, useEffect} from "react";
+import "../styles/SplashScreenPolys.css";
 import image1 from "../assets/images/black-couple.jpg"; // Add actual image paths
-import image2 from "../assets/imgnew/deal pages logo.jpg";
+import dealopolyImage from "../assets/desktop/dealopoly.png";
+import dealopolyMobileImage from "../assets/mobileview/dealopoly.png";
 import image3 from "../assets/newedit/dealpageslogo.png";
+import dealPagesMobileImage from "../assets/mobileview/dealpages.png";
 
 const SplashScreenDealPages = ({dealopoly}) => {
+
+   const [isMobile, setIsMobile] = useState(window.innerWidth < 786);
+  
+    useEffect(() => {
+      const handleResize = () => setIsMobile(window.innerWidth < 786);
+      window.addEventListener("resize", handleResize);
+      
+      return () => window.removeEventListener("resize", handleResize);
+    }, []);
+    
   return (
-      <div className="splash-container">
-        <div className="splash-images">
-         {dealopoly ? <img src={image2} alt="Deal 3" className="splash-image fade-in" />: <img src={image3} alt="Deal 2" className="splash-image fade-in" />}
+        <div className="splash-images-dealopoly">
+         {dealopoly ? <img src={isMobile ?  dealopolyMobileImage : dealopolyImage} alt="Deal 3" className="splash-image-dealopoly" />: <img src={isMobile? dealPagesMobileImage : image3} alt="Deal 2" className="splash-image-dealopoly"/>}
         </div>
-        {/* <div className="splash-content">
-          {dealopoly ? <p className="splash-text">Dealopoly page is loading...!</p> : <p className="splash-text">You are about to redirected from here to deal pages flipbook!</p> }
-        </div> */}
-      </div>
     );
 }
 
