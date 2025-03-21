@@ -8,7 +8,7 @@ import dealopolyImage from "../assets/images/young-man.jpg"; // Placeholder Imag
 import { Link } from "react-router-dom";
 import SplashScreenDealPages from "./SplashScreenDealPages";
 
-const DealopolySplash = () => {
+const DealopolyDynasty = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -45,22 +45,6 @@ const DealopolySplash = () => {
       toast.error("Signup failed! " + err.message, {id: loadingSignup});
     }
   };
-
-
-  const [showSplashScreen, setShowSplashScreen] = useState(true)
-
-
-  useEffect(() => {
-      const timer = setTimeout(() => {
-        setShowSplashScreen(false);
-      }, 5000); 
-      return () => clearTimeout(timer);
-    }, []);
-    
-  
-    if(showSplashScreen){
-      return <SplashScreenDealPages dealopoly={true}/>
-    }
 
 
 
@@ -116,4 +100,4 @@ const DealopolySplash = () => {
   );
 };
 
-export default DealopolySplash;
+export default DealopolyDynasty;
