@@ -179,7 +179,7 @@ const Home = () => {
 
         <div id="nav-buttons">
           <button onClick={() => navigate("/localopoly")}>Deal Pages</button>
-          <button onClick={() => navigate("/dealopoly")}>Dealopoly</button>
+          <button onClick={() => navigate("/dealopoly")}>Deal Dynasty</button>
           <button onClick={() => navigate("/partners")}>Partners</button>
           {/* <button onClick={handleInstallClick}>
             Download to Home Screen

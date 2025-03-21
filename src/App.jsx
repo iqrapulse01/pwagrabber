@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useLocation,
+} from "react-router-dom";
 import Navbar from "./components/Navbar";
 import SplashScreen from "./pages/SplashScreen"; // Import splash screen
 import Home from "./pages/Home";
@@ -19,6 +24,8 @@ import DealDetails from "./pages/DealDetails";
 import Foodopoly from "./pages/Foodopoly";
 import ShopCh from "./pages/ShopCh";
 import Partnerlocalopoly from "./pages/PartnerLocalopoly";
+import SpinWheel from "./components/SpinWheel";
+import ClaimPrize from "./pages/ClaimPrize";
 // import ShopCh from "./pa";
 
 const ScrollToTop = () => {
@@ -73,6 +80,10 @@ const App = () => {
           <Route path="/partners" element={<PartnersSplash />} />
           <Route path="/shopch" element={<ShopCh />} />
           <Route path="/partnerlocalopoly" element={<Partnerlocalopoly />} />
+
+          {/* 🔹 Spin Wheel & Prize Claim Routes */}
+          <Route path="/spin-wheel" element={<SpinWheel />} />
+          <Route path="/claim-prize" element={<ClaimPrize />} />
         </Routes>
       </Router>
       <Toaster />

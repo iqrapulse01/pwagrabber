@@ -1,14 +1,23 @@
 import React from 'react';
+import { withRouter } from './withRouter'; // A helper to use navigation in class components
 import './SpinWheel.css';
 import toast from 'react-hot-toast';
+import spinSound from '../assets/audio/CasinoWheel-m.mp3';
+import dgLogo from '../assets/images/dealgrabberlogo.png';
+import localopolyLogo from '../assets/images/localopolylogo.png';
+import foodopolyLogo from '../assets/images/foodopoly.png';
+import dealopolyLogo from '../assets/images/dealopoly.png';
+import mobilopolyLogo from '../assets/images/mobilopoly.png';
+import bizopolyLogo from '../assets/images/Bizopoly.png';
 
-export default class SpinWheel extends React.Component {
+class SpinWheel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedItem: null,
     };
     this.selectItem = this.selectItem.bind(this);
+    this.audio = new Audio(spinSound);
   }
 
   selectItem() {
@@ -18,15 +27,22 @@ export default class SpinWheel extends React.Component {
         this.props.onSelectItem(selectedItem);
       }
       this.setState({ selectedItem });
+      this.audio.play();
 
-      // Show toast after selection
       setTimeout(() => {
-        if(selectedItem === 0){
-            toast.success(`Sorry No Prizes!😞 `);
+        this.audio.pause();
+        this.audio.currentTime = 0;
+
+        if (selectedItem === 0) {
+          toast.success(`Sorry, No Prize! 😞`);
+        } else {
+          const prize = this.props.prizes[selectedItem];
+          toast.success(`You won: ${prize}! 🎉`);
+          
+          // Redirect to the Claim Prize page with the prize as state
+          this.props.navigate('/claim-prize', { state: { prize } });
         }
-        else
-        toast.success(`You won: ${this.props.prizes[selectedItem]}! 🎉`);
-      }, 3000); // Delay to match spin animation
+      }, 3000);
     } else {
       this.setState({ selectedItem: null });
       setTimeout(this.selectItem, 500);
@@ -36,7 +52,9 @@ export default class SpinWheel extends React.Component {
   render() {
     const { selectedItem } = this.state;
     const { prizes } = this.props;
-
+    
+    const logos = [dgLogo, dealopolyLogo, foodopolyLogo, mobilopolyLogo, bizopolyLogo, localopolyLogo, dgLogo];
+    
     const wheelVars = {
       '--nb-item': prizes.length,
       '--selected-item': selectedItem,
@@ -45,14 +63,23 @@ export default class SpinWheel extends React.Component {
 
     return (
       <div className="wheel-container">
+        <div className="wheel-indicator"></div>
         <div className={`wheel ${spinning}`} style={wheelVars} onClick={this.selectItem}>
           {prizes.map((item, index) => (
-            <div className="wheel-item" key={index} style={{ '--item-nb': index }}>
-              {item}
+            <div
+              className="wheel-item"
+              key={index}
+              style={{ '--item-nb': index }}
+            >
+              <img src={logos[index]} alt="Wheel Logo" className="wheel-logo" /> <br />
+              <span className="wheel-text">{item}</span>
             </div>
           ))}
         </div>
+        <div className="wheel-center" onClick={this.selectItem}></div>
       </div>
     );
   }
 }
+
+export default withRouter(SpinWheel);
