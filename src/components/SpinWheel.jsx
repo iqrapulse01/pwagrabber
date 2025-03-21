@@ -397,9 +397,9 @@ export default class SpinWheel extends React.Component {
                   <button type="submit" className="submit-bt">
                     Submit
                   </button>
-                  <button className="close-btn" type="reset" onClick={this.handleClosePopup}>
+                  {/* <button className="close-btn" type="reset" onClick={this.handleClosePopup}>
                     Skip
-                  </button>
+                  </button> */}
                 </div>
               </form>
             </div>
