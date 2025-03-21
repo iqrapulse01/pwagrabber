@@ -13,7 +13,7 @@ import { FiDownload } from "react-icons/fi";
 const Home = () => {
   const prizes = [
     "No Prize",
-    "Your Prize 1",
+    "Your Prize",
     "Your Prize 2",
     "Your Prize 3",
     "Your Prize 4",
@@ -169,7 +169,11 @@ const Home = () => {
         <h1 className="large rise ">
           Welcome {username ? username : ""} to Deal Grabber
         </h1>
-        <p>Your Destination for Dynamic Deals and Discounts.</p>
+
+        <h1 className="large rise ">
+         Windy City Wheel
+        </h1>
+        <p>Take a spin on the Windy City Wheel!</p>
         {/* <p>Dealopoly is your super search engine for local offers in your area.</p> */}
 
         <div className="spin-game">

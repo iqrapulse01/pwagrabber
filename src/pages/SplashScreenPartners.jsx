@@ -11,7 +11,7 @@ const SplashScreenPartners = () => {
     window.addEventListener("resize", handleResize);
     
     return () => window.removeEventListener("resize", handleResize);
-  }, []);
+  }, [isMobile]);
   return (
         <div className="splash-images-dealopoly">
          <img src={isMobile ? partnersMobileImage : partnersImage} alt="Deal 3" className="splash-image-dealopoly" />

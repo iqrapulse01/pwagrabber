@@ -15,7 +15,7 @@ const SplashScreenDealPages = ({dealopoly}) => {
       window.addEventListener("resize", handleResize);
       
       return () => window.removeEventListener("resize", handleResize);
-    }, []);
+    }, [isMobile]);
     
   return (
         <div className="splash-images-dealopoly">

@@ -10,7 +10,7 @@ import dealopolyLogo from '../assets/images/dealopoly.png';
 import mobilopolyLogo from '../assets/images/mobilopoly.png';
 import bizopolyLogo from '../assets/images/Bizopoly.png';
 
-class SpinWheel extends React.Component {
+class SpinWheelCopy extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -82,4 +82,4 @@ class SpinWheel extends React.Component {
   }
 }
 
-export default withRouter(SpinWheel);
+export default withRouter(SpinWheelCopy);
