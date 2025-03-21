@@ -26,6 +26,7 @@ import ShopCh from "./pages/ShopCh";
 import Partnerlocalopoly from "./pages/PartnerLocalopoly";
 import SpinWheel from "./components/SpinWheel";
 import ClaimPrize from "./pages/ClaimPrize";
+import DealopolyDynasty from "./pages/DealopolyDynasty";
 // import ShopCh from "./pa";
 
 const ScrollToTop = () => {
@@ -77,6 +78,7 @@ const App = () => {
           <Route path="/foodopoly" element={<Foodopoly />} />
           <Route path="/localopoly" element={<Localopoly />} />
           <Route path="/dealopoly" element={<Dealopoly />} />
+          <Route path="/dealopoly-dynasty" element={<DealopolyDynasty />} />
           <Route path="/partners" element={<PartnersSplash />} />
           <Route path="/shopch" element={<ShopCh />} />
           <Route path="/partnerlocalopoly" element={<Partnerlocalopoly />} />
