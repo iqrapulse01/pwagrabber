@@ -107,7 +107,7 @@ const Home = () => {
       } else {
         navigate(path);
       }
-    }, 5000);
+    }, 3000);
   };
 
   useEffect(() => {
