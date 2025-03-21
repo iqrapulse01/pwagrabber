@@ -14,10 +14,10 @@ const Home = () => {
   const prizes = [
     "No Prize",
     "Your Prize",
-    "Your Prize 2",
-    "Your Prize 3",
-    "Your Prize 4",
-    "Your Prize 5",
+    "Your Prize",
+    "Your Prize",
+    "Your Prize",
+    "Your Prize",
   ];
   const [showPopup, setShowPopup] = useState(true);
   const [name, setName] = useState("");

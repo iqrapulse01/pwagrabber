@@ -1,4 +1,7 @@
 /* Main container */
+body{
+  overflow-x: hidden;
+}
 .splash-container {
   display: flex;
   flex-direction: column;

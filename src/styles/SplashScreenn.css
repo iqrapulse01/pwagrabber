@@ -10,7 +10,9 @@
     padding: 20px;
     /* animation: fadeIn 1.5s ease-in-out; */
   }
-
+body{
+  overflow-x: hidden;
+}
 
   #nav-buttons-partners {
     display: flex;
