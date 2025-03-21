@@ -8,6 +8,8 @@ import dealopolyImage from "../assets/images/young-man.jpg"; // Placeholder Imag
 import { Link } from "react-router-dom";
 import SplashScreenDealPages from "./SplashScreenDealPages";
 
+import "../styles/DealDynasty.css"
+
 const DealopolySplash = () => {
   
 
@@ -32,10 +34,13 @@ const DealopolySplash = () => {
   return (
 
     <>
-    <h1>
-      Hello
+    <div className="dealDynasty-wrapper">
+    <h1 className="text-center">
+    "3S" Super Savers Squad: Level Up Your Discount Game
     </h1>
+    <p className="dealDynasty-para">Join the "3S" to unlock deeper-than-ever discounts, AI-powered personalization, and VIP-only Power Moves.</p>
     <Link to={'/dealopoly-dynasty'}>Create Account</Link>
+    </div>
     </>
   );
 };
