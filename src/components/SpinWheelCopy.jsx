@@ -37,7 +37,7 @@ class SpinWheelCopy extends React.Component {
           toast.success(`Sorry, No Prize! 😞`);
         } else {
           const prize = this.props.prizes[selectedItem];
-          toast.success(`You won: ${prize}! 🎉`);
+          toast.success(`Congratulations! You're a Winner!: ${prize}! 🎉`);
           
           // Redirect to the Claim Prize page with the prize as state
           this.props.navigate('/claim-prize', { state: { prize } });

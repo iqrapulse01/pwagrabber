@@ -166,14 +166,14 @@ const Home = () => {
       )}
 
       <div className="home-content">
-        <h1 className="large rise ">
-          Welcome {username ? username : ""} to Deal Grabber
+        <h1 className="large rise " style={{ fontSize:"24px" }}>
+          Welcome {username ? username : ""} to Deal Grabber Windy City Wheel
         </h1>
 
-        <h1 className="large rise ">
-         Windy City Wheel
+        <h1 className="large rise" style={{ color: "#149046",fontSize:"21px" }}>
+          Take a Spin Grab A Deal!
         </h1>
-        <p>Take a spin on the Windy City Wheel!</p>
+        {/* <p>Take a Spin Grab A Deal!</p> */}
         {/* <p>Dealopoly is your super search engine for local offers in your area.</p> */}
 
         <div className="spin-game">
@@ -184,10 +184,12 @@ const Home = () => {
         <div id="nav-buttons">
           <button onClick={() => navigate("/localopoly")}>Deal Pages</button>
           <button onClick={() => navigate("/dealopoly")}>Deal Dynasty</button>
-          <button onClick={() => navigate("/partners")}>Partners</button>
+          <button onClick={() => navigate("/deals")}>Deals</button>
+          {/* <button onClick={() => navigate("/partners")}>Partners</button> */}
           {/* <button onClick={handleInstallClick}>
             Download to Home Screen
           </button> */}
+          
         </div>
       </div>
     </div>

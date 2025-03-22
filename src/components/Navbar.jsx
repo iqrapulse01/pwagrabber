@@ -41,15 +41,21 @@ const Navbar = () => {
           </Link>
         </li>
         <li>
-          <Link
+          {/* <Link
             to="/deals"
             className={location.pathname === "/deals" ? "active" : ""}
             onClick={toggleMenu}
           >
             Deals
+          </Link> */}
+          <Link
+            to="/partners"
+            className={location.pathname === "/partners" ? "active" : ""}
+            onClick={toggleMenu}
+          >
+            Partners
           </Link>
         </li>
-        
       </ul>
 
       {/* Hamburger Menu for Mobile */}
