@@ -115,18 +115,18 @@ export default class SpinWheel extends React.Component {
       // For development/testing
       // if (process.env.NODE_ENV === 'development') {
       // Generate a random mock IP for testing
-      const mockIp = `192.168.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`
-      console.log("Using mock IP for testing:", mockIp)
-      this.setState({ userIp: mockIp })
-      this.checkIpRestriction(mockIp)
+      // const mockIp = `192.168.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`
+      // console.log("Using mock IP for testing:", mockIp)
+      // this.setState({ userIp: mockIp })
+      // this.checkIpRestriction(mockIp)
       // return;
       // }
 
       // Normal production code
-      // const response = await fetch("https://api.ipify.org?format=json");
-      // const data = await response.json();
-      // this.setState({ userIp: data.ip });
-      // this.checkIpRestriction(data.ip);
+      const response = await fetch("https://api.ipify.org?format=json");
+      const data = await response.json();
+      this.setState({ userIp: data.ip });
+      this.checkIpRestriction(data.ip);
     } catch (error) {
       console.error("Error fetching IP:", error)
     }
