@@ -4,6 +4,7 @@ import React from "react"
 import "./SpinWheel.css"
 import toast from "react-hot-toast"
 import spinSound from "../assets/audio/CasinoWheel-m.mp3"
+import chaCha from "../assets/audio/chacha.wav"
 import dgLogo from "../assets/images/dealgrabberlogo.png"
 import localopolyLogo from "../assets/images/localopolylogo.png"
 import foodopolyLogo from "../assets/images/foodopoly.png"
@@ -36,6 +37,7 @@ export default class SpinWheel extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleClosePopup = this.handleClosePopup.bind(this)
     this.audio = new Audio(spinSound)
+    this.winningAudio = new Audio(chaCha)
 
     // Prize URLs mapping
     this.prizeUrls = {
@@ -186,6 +188,7 @@ export default class SpinWheel extends React.Component {
             hasPlayed: true,
             showSpinGame: false,
           })
+          this.winningAudio.play();
           toast.success(`Congratulations! You won Foodopoly! 🎉`)
         }
       }, 3000)
