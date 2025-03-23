@@ -167,7 +167,7 @@ const Home = () => {
 
       <div className="home-content">
         <h1 className="large rise " style={{ fontSize:"24px" }}>
-          Welcome {username ? username : ""} to Deal Grabber Windy City Wheel
+          Welcome {username ? username : ""} to the <br /> Deal Grabber <br /> Windy City Wheel
         </h1>
 
         <h1 className="large rise" style={{ color: "#149046",fontSize:"21px" }}>
