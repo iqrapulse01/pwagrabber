@@ -14,6 +14,7 @@ import bizopolyLogo from "../assets/images/Bizopoly.png"
 import { getAuth, onAuthStateChanged } from "firebase/auth"
 import { getFirestore, collection, addDoc, query, where, getDocs } from "firebase/firestore"
 import prizeImage from "../assets/images/prize.png"
+import { Link } from "react-router-dom"
 
 export default class SpinWheel extends React.Component {
   constructor(props) {
@@ -53,7 +54,9 @@ export default class SpinWheel extends React.Component {
 
   componentDidMount() {
     // Initialize OneSignal
-    this.initializeOneSignal()
+    this.loadOneSignalSDK(() => {
+      this.setupOneSignal() 
+    })
 
     const auth = getAuth()
     this.authUnsubscribe = onAuthStateChanged(auth, (user) => {
@@ -79,54 +82,76 @@ export default class SpinWheel extends React.Component {
     }
   }
 
-  initializeOneSignal() {
-    if (window.OneSignal && window.OneSignalInitialized) {
-      console.warn("OneSignal is already initialized.")
+  // initializeOneSignal() {
+  //   if (window.OneSignal && window.OneSignalInitialized) {
+  //     console.warn("OneSignal is already initialized.")
+  //     return
+  //   }
+
+  //   // Load OneSignal script dynamically
+  //   const script = document.createElement("script")
+  //   script.src = "https://cdn.onesignal.com/sdks/OneSignalSDK.js"
+  //   script.async = true
+  //   script.onload = () => this.setupOneSignal()
+  //   document.body.appendChild(script)
+  // }
+
+  loadOneSignalSDK(callback) {
+    if (window.OneSignal) {
+      console.warn("OneSignal is already loaded.")
+      callback() // Run setup function immediately if SDK is already loaded
       return
     }
-
-    // Load OneSignal script dynamically
+  
     const script = document.createElement("script")
     script.src = "https://cdn.onesignal.com/sdks/OneSignalSDK.js"
     script.async = true
-    script.onload = () => this.setupOneSignal()
+    script.onload = callback // ✅ Calls setupOneSignal() after SDK loads
     document.body.appendChild(script)
   }
+  
 
   setupOneSignal() {
-    if (window.OneSignalInitialized) return
-
-    window.OneSignal = window.OneSignal || []
+    if (window.OneSignalInitialized) return ;
+  
+    if (!window.OneSignal || typeof window.OneSignal !== "object") {
+      console.warn("OneSignal SDK is not loaded yet.")
+      return
+    }
+  
     window.OneSignal.push(() => {
       window.OneSignal.init({
         appId: "41678371-bbec-4aee-98ab-dfbe18be70b6",
         safari_web_id: "web.onesignal.auto.xxxxx",
         notifyButton: { enable: true },
         allowLocalhostAsSecureOrigin: true,
+        serviceWorkerPath: "/OneSignalSDKWorker.js", // ✅ Ensure correct SW path
+        serviceWorkerUpdaterPath: "/OneSignalSDKUpdaterWorker.js",
       })
     })
-
+  
     window.OneSignalInitialized = true
     this.setState({ oneSignalInitialized: true })
   }
+  
 
   async fetchIpAndCheckRestriction() {
     try {
       // For development/testing
       // if (process.env.NODE_ENV === 'development') {
       // Generate a random mock IP for testing
-      // const mockIp = `192.168.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`
-      // console.log("Using mock IP for testing:", mockIp)
-      // this.setState({ userIp: mockIp })
-      // this.checkIpRestriction(mockIp)
+      const mockIp = `192.168.${Math.floor(Math.random() * 255)}.${Math.floor(Math.random() * 255)}`
+      console.log("Using mock IP for testing:", mockIp)
+      this.setState({ userIp: mockIp })
+      this.checkIpRestriction(mockIp)
       // return;
       // }
 
       // Normal production code
-      const response = await fetch("https://api.ipify.org?format=json");
-      const data = await response.json();
-      this.setState({ userIp: data.ip });
-      this.checkIpRestriction(data.ip);
+      // const response = await fetch("https://api.ipify.org?format=json");
+      // const data = await response.json();
+      // this.setState({ userIp: data.ip });
+      // this.checkIpRestriction(data.ip);
     } catch (error) {
       console.error("Error fetching IP:", error)
     }
@@ -144,7 +169,9 @@ export default class SpinWheel extends React.Component {
           ipRestricted: true,
           hasPlayed: true,
         })
-        toast.error("You have already played the game from this device!")
+        if(!isAuthenticated){
+          toast.error("You can play only once. Create an account to access more exciting features");
+        }
       }
     } catch (error) {
       console.error("Error checking IP restriction:", error)
@@ -334,8 +361,8 @@ export default class SpinWheel extends React.Component {
     if (isAuthenticated) {
       return (
         <div className="authenticated-message">
-          <h2>Welcome to Your Account</h2>
-          <p>You're logged in! The spin game is not available for registered users.</p>
+          <h2>Welcome!</h2>
+          <p>You're logged in!</p>
         </div>
       )
     }
@@ -343,8 +370,11 @@ export default class SpinWheel extends React.Component {
     if (ipRestricted && (!hasWon || formSubmitted)) {
       return (
         <div className="restricted-message">
-          <h2>You have already played the game from this device!</h2>
-          <p>Each user can only play once. Create an account to access more features.</p>
+          <h2>You can play only once.</h2>
+          <p>Create an account to access more exciting features</p>
+          <Link to="/dealopoly-dynasty" className="create-account-link">
+                  Create an Account
+          </Link>
         </div>
       )
     }
