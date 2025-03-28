@@ -38,15 +38,15 @@ const ScrollToTop = () => {
 };
 
 const App = () => {
-  const [showSplash, setShowSplash] = useState(true);
+  // const [showSplash, setShowSplash] = useState(true);
   const [deferredPrompt, setDeferredPrompt] = useState(null);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplash(false);
-    }, 7500);
-    return () => clearTimeout(timer);
-  }, []);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowSplash(false);
+  //   }, 7500);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
   useEffect(() => {
     window.addEventListener("beforeinstallprompt", (e) => {
@@ -55,9 +55,9 @@ const App = () => {
     });
   }, []);
 
-  if (showSplash) {
-    return <SplashScreen />;
-  }
+  // if (showSplash) {
+  //   return <SplashScreen />;
+  // }
 
   return (
     <>
